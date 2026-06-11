@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Exercises - Quick Reference Handout</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f7fafc;
+            color: #2d3748;
+            padding: 30px;
+            line-height: 1.7;
+        }
+        .container { max-width: 850px; margin: 0 auto; }
+        h1 { 
+            text-align: center; 
+            color: #2b6cb0; 
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+        .intro {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+        .module {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-left: 5px solid #4299e1;
+            page-break-inside: avoid;
+        }
+        .module.html-mod { border-left-color: #e53e3e; }
+        .module.css-mod { border-left-color: #38a169; }
+        .module.js-mod { border-left-color: #805ad5; }
+        .module.responsive-mod { border-left-color: #d69e2e; }
+        .module.api-mod { border-left-color: #e53e3e; }
+        .module.project-mod { border-left-color: #319795; }
+
+        .module h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+            font-size: 1.4rem;
+        }
+        .module .time {
+            font-size: 0.85rem;
+            color: #a0aec0;
+            margin-bottom: 15px;
+        }
+        .task-label {
+            font-weight: bold;
+            color: #2b6cb0;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+        ol {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .bonus {
+            background: #fffff0;
+            border: 1px solid #ecc94b;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-top: 10px;
+        }
+        .bonus strong { color: #d69e2e; }
+        .hint {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+        .hint strong { color: #2b6cb0; }
+        code {
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-family: 'Cascadia Code', 'Consolas', monospace;
+            color: #805ad5;
+        }
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+        .checklist li {
+            padding-left: 28px;
+            position: relative;
+        }
+        .checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 30px;
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+
+        @media print {
+            body { background: white; padding: 15px; }
+            .module { box-shadow: none; border: 1px solid #e2e8f0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏋️ Workshop Exercises Handout</h1>
+        <p class="intro">Complete each exercise after the presenter finishes that module. Check them off as you go!</p>
+
+        <!-- MODULE 1: HTML -->
+        <div class="module html-mod">
+            <h2>📄 Module 1: HTML Basics</h2>
+            <p class="time">⏱️ Time: 5 minutes | 📂 File: <code>01-html-basics/index.html</code></p>
+            
+            <p class="task-label">Tasks:</p>
+            <ol class="checklist">
+                <li>Change the <code>&lt;h1&gt;</code> text to say your own name (e.g., "Welcome to Alex's Page!")</li>
+                <li>Add an unordered list (<code>&lt;ul&gt;</code>) with your 3 favorite foods</li>
+                <li>Add a link (<code>&lt;a&gt;</code>) to your favorite website</li>
+                <li>Add a second paragraph about your hobbies using <code>&lt;p&gt;</code></li>
+                <li>Save (Ctrl+S) and check in your browser!</li>
+            </ol>
+            
+            <div class="bonus">
+                <strong>⭐ Bonus:</strong> Add an image using <code>&lt;img src="https://via.placeholder.com/200" alt="My image"&gt;</code>
+            </div>
+            
+            <div class="hint">
+                <strong>💡 Hint:</strong> Tags come in pairs! <code>&lt;p&gt;Your text here&lt;/p&gt;</code>. Save often and refresh!
+            </div>
+        </div>
+
+        <!-- MODULE 2: CSS -->
+        <div class="module css-mod">
+            <h2>🎨 Module 2: CSS Styling</h2>
+            <p class="time">⏱️ Time: 7 minutes | 📂 File: <code>02-css-styling/style.css</code></p>
+            
+            <p class="task-label">Tasks:</p>
+            <ol class="checklist">
+                <li>Change the <code>background-color</code> of <code>body</code> to a color you like (try <code>#fff0f5</code> or <code>lightyellow</code>)</li>
+                <li>Change the <code>.card</code> border color to your favorite color</li>
+                <li>Make the <code>h1</code> font-size bigger (try <code>3rem</code>)</li>
+                <li>Change the <code>.cool-button</code> background color</li>
+                <li>Change what happens on <code>.cool-button:hover</code> (try a different color!)</li>
+            </ol>
+            
+            <div class="bonus">
+                <strong>⭐ Bonus:</strong> Add <code>box-shadow: 0 4px 15px rgba(0,0,0,0.2);</code> to <code>.card</code> for a fancy shadow effect!
+            </div>
+            
+            <div class="hint">
+                <strong>💡 Hint:</strong> CSS format is <code>property: value;</code> — don't forget the semicolon! Try color names like "coral", "teal", "orchid".
+            </div>
+        </div>
+
+        <!-- MODULE 3: JavaScript -->
+        <div class="module js-mod">
+            <h2>⚡ Module 3: JavaScript</h2>
+            <p class="time">⏱️ Time: 8 minutes | 📂 File: <code>03-javascript-interaction/script.js</code></p>
+            
+            <p class="task-label">Tasks:</p>
+            <ol class="checklist">
+                <li>Open the page in Live Server and test all the buttons</li>
+                <li>In <code>script.js</code>, find the <code>messages</code> array and add your own messages</li>
+                <li>Find the greeter function and add a "Good night" greeting for after 9pm (hour >= 21)</li>
+                <li>Change the random color function to only use your favorite colors</li>
+                <li>Open the browser Console (F12) and type <code>alert("Hello!")</code></li>
+            </ol>
+            
+            <div class="bonus">
+                <strong>⭐ Bonus:</strong> Add a "Reset" button for the counter. You'll need:
+                <br>• A new <code>&lt;button id="reset-btn"&gt;Reset&lt;/button&gt;</code> in the HTML
+                <br>• JavaScript to set <code>count = 0</code> and update the display when clicked
+            </div>
+            
+            <div class="hint">
+                <strong>💡 Hint:</strong> The Console (F12) is your best debugging friend. Red text = error. Look at the line number!
+            </div>
+        </div>
+
+        <!-- MODULE 4: Responsive -->
+        <div class="module responsive-mod">
+            <h2>📱 Module 4: Responsive Design</h2>
+            <p class="time">⏱️ Time: 7 minutes | 📂 File: <code>04-responsive-design/style.css</code></p>
+            
+            <p class="task-label">Tasks:</p>
+            <ol class="checklist">
+                <li>Open the page and <strong>resize your browser window</strong> — watch cards rearrange!</li>
+                <li>Press F12 → click the "Toggle Device Toolbar" icon (📱) to simulate a phone</li>
+                <li>In <code>style.css</code>, find <code>@media (min-width: 768px)</code></li>
+                <li>Change <code>768px</code> to <code>500px</code> — resize and see the difference!</li>
+                <li>Add a 5th card in the HTML — does the layout still look good?</li>
+            </ol>
+            
+            <div class="bonus">
+                <strong>⭐ Bonus:</strong> Add a media query that makes <code>h1</code> font-size <code>1.2rem</code> on mobile and <code>2.5rem</code> on desktop.
+            </div>
+            
+            <div class="hint">
+                <strong>💡 Hint:</strong> Mobile-first means: write small screen styles first, then use <code>@media (min-width: ...)</code> for bigger screens.
+            </div>
+        </div>
+
+        <!-- MODULE 5: APIs -->
+        <div class="module api-mod">
+            <h2>🌐 Module 5: API Integration</h2>
+            <p class="time">⏱️ Time: 8 minutes | 📂 File: <code>05-api-integration/script.js</code></p>
+            
+            <p class="task-label">Tasks:</p>
+            <ol class="checklist">
+                <li>Open the page and click "Tell Me a Joke" — a joke appears from the internet!</li>
+                <li>Click "Show Me a Dog" — a random photo loads!</li>
+                <li>Open DevTools (F12) → <strong>Network tab</strong> → click a button → see the API call!</li>
+                <li>In <code>script.js</code>, find <code>fetchJoke</code> and change the category (try <code>Programming</code> or <code>Christmas</code>)</li>
+                <li>Find the dog fetch and try the URL in a new browser tab to see raw JSON</li>
+            </ol>
+            
+            <div class="bonus">
+                <strong>⭐ Bonus:</strong> Add a new button that fetches cat facts from <code>https://catfact.ninja/fact</code>
+                <br>• The response has <code>data.fact</code> containing the text
+                <br>• Copy the pattern from <code>fetchJoke</code> and adapt it!
+            </div>
+            
+            <div class="hint">
+                <strong>💡 Hint:</strong> Always use <code>try/catch</code> with <code>fetch()</code>! The internet isn't always reliable.
+            </div>
+        </div>
+
+        <!-- MODULE 6: Mini Project -->
+        <div class="module project-mod">
+            <h2>🏗️ Module 6: Mini Project</h2>
+            <p class="time">⏱️ Time: 15 minutes | 📂 File: <code>06-mini-project/</code></p>
+            
+            <p class="task-label">Tasks:</p>
+            <ol class="checklist">
+                <li>Open <code>06-mini-project/index.html</code> in Live Server</li>
+                <li>Find "Your Name" in the hero section and replace with your real name</li>
+                <li>Update the "About Me" section with 2 sentences about yourself</li>
+                <li>Add a new skill card (copy an existing one and change the emoji + text)</li>
+                <li>Test the Dark Mode toggle — does it work?</li>
+                <li>Click around the Fun Zone (jokes, counter, colors)</li>
+                <li>Change at least 2 colors in <code>style.css</code></li>
+            </ol>
+            
+            <div class="bonus">
+                <strong>⭐ Bonus Challenges:</strong>
+                <br>• Add a new section (Hobbies? Favorite Music? Goals for this year?)
+                <br>• Add another API feature to the Fun Zone
+                <br>• Change the gradient colors in the hero section
+                <br>• Add hover animations to the skill cards
+            </div>
+            
+            <div class="hint">
+                <strong>💡 Hint:</strong> This is YOUR portfolio — be creative! There are no wrong answers. Try things, break things, fix things. That's how real developers work!
+            </div>
+        </div>
+
+        <p class="footer-note">
+            🎉 Congratulations on completing all exercises! You're a frontend developer now!<br>
+            Keep this handout as a reference. Keep building. Keep learning. 🚀
+        </p>
+    </div>
+</body>
+</html>

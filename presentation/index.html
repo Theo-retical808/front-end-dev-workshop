@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Workshop - Presentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- SLIDE NAVIGATION -->
+    <div class="controls">
+        <button id="prev-btn" onclick="prevSlide()">◀ Previous</button>
+        <span id="slide-counter">1 / 42</span>
+        <button id="next-btn" onclick="nextSlide()">Next ▶</button>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 1: TITLE & INTRODUCTION -->
+    <!-- ============================================================ -->
+
+    <div class="slide title-slide active">
+        <div class="slide-content">
+            <h1>🎨 Crafting Interactive Interfaces</h1>
+            <h2>Frontend Development Basics</h2>
+            <p class="subtitle">A hands-on workshop for beginners</p>
+            <div class="meta">
+                <span>👥 Ages 12–24</span>
+                <span>⏱️ ~3 hours</span>
+                <span>💻 No experience needed</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>📋 What We'll Learn Today</h2>
+            <div class="agenda">
+                <div class="agenda-item"><span class="num">1</span> HTML — Structure of a page</div>
+                <div class="agenda-item"><span class="num">2</span> CSS — Making it look good</div>
+                <div class="agenda-item"><span class="num">3</span> JavaScript — Making it interactive</div>
+                <div class="agenda-item"><span class="num">4</span> Responsive Design — Works on all devices</div>
+                <div class="agenda-item"><span class="num">5</span> APIs — Getting data from the internet</div>
+                <div class="agenda-item"><span class="num">6</span> Mini Project — Put it all together!</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>🧰 What You Need</h2>
+            <ul class="big-list">
+                <li>✅ A computer (any kind!)</li>
+                <li>✅ VS Code (free code editor)</li>
+                <li>✅ Google Chrome (browser)</li>
+                <li>✅ Curiosity and willingness to try!</li>
+            </ul>
+            <div class="tip-box">
+                💡 Run <code>setup.bat</code> to install everything automatically!
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>🌐 How Websites Work</h2>
+            <div class="three-pillars">
+                <div class="pillar">
+                    <div class="pillar-icon">🏗️</div>
+                    <h3>HTML</h3>
+                    <p>The <strong>skeleton</strong></p>
+                    <p class="small">What's on the page</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">🎨</div>
+                    <h3>CSS</h3>
+                    <p>The <strong>clothing</strong></p>
+                    <p class="small">How it looks</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">⚡</div>
+                    <h3>JavaScript</h3>
+                    <p>The <strong>brain</strong></p>
+                    <p class="small">What it does</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 2: HTML BASICS -->
+    <!-- ============================================================ -->
+
+    <div class="slide section-slide">
+        <div class="slide-content">
+            <div class="section-number">Module 1</div>
+            <h1>📄 HTML Basics</h1>
+            <p>The structure of every webpage</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>What is HTML?</h2>
+            <ul class="big-list">
+                <li>HTML = <strong>HyperText Markup Language</strong></li>
+                <li>It tells the browser <em>what</em> to show</li>
+                <li>Uses "tags" — instructions wrapped in angle brackets</li>
+                <li>Most tags come in pairs: <code>&lt;tag&gt;content&lt;/tag&gt;</code></li>
+            </ul>
+            <div class="analogy">
+                🏠 Think of HTML as the <strong>blueprint</strong> of a house — it defines rooms, doors, and windows, but not the paint color.
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Basic Page Structure</h2>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;p&gt;This is my first webpage.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <div class="tip-box">
+                🧠 <code>&lt;head&gt;</code> = invisible info | <code>&lt;body&gt;</code> = visible content
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Essential HTML Tags</h2>
+            <table class="tag-table">
+                <tr><th>Tag</th><th>What it does</th><th>Example</th></tr>
+                <tr><td><code>&lt;h1&gt;–&lt;h6&gt;</code></td><td>Headings (big → small)</td><td>Page titles</td></tr>
+                <tr><td><code>&lt;p&gt;</code></td><td>Paragraph of text</td><td>Body text</td></tr>
+                <tr><td><code>&lt;a href=""&gt;</code></td><td>Clickable link</td><td>Navigation</td></tr>
+                <tr><td><code>&lt;img src=""&gt;</code></td><td>Image</td><td>Photos, icons</td></tr>
+                <tr><td><code>&lt;ul&gt; &lt;li&gt;</code></td><td>Bullet list</td><td>Menu items</td></tr>
+                <tr><td><code>&lt;button&gt;</code></td><td>Clickable button</td><td>Actions</td></tr>
+                <tr><td><code>&lt;div&gt;</code></td><td>Container/group</td><td>Sections</td></tr>
+                <tr><td><code>&lt;input&gt;</code></td><td>Text field</td><td>Forms</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Live Demo: Let's Build!</h2>
+            <pre><code>&lt;h1&gt;Welcome to My Page 🎉&lt;/h1&gt;
+
+&lt;p&gt;My name is Alex and I love coding!&lt;/p&gt;
+
+&lt;h2&gt;My Favorite Things&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;Pizza 🍕&lt;/li&gt;
+    &lt;li&gt;Music 🎵&lt;/li&gt;
+    &lt;li&gt;Games 🎮&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;a href="https://google.com"&gt;Visit Google&lt;/a&gt;</code></pre>
+            <p class="instruction">👉 Open <code>01-html-basics/index.html</code> and try this!</p>
+        </div>
+    </div>
+
+    <!-- HTML EXERCISE -->
+    <div class="slide exercise-slide">
+        <div class="slide-content">
+            <h2>🏋️ Exercise: HTML Basics</h2>
+            <div class="exercise-box">
+                <h3>Your Task (5 minutes):</h3>
+                <ol>
+                    <li>Open <code>01-html-basics/index.html</code></li>
+                    <li>Change the <code>&lt;h1&gt;</code> to your own name</li>
+                    <li>Add a list of your 3 favorite foods</li>
+                    <li>Add a link to your favorite website</li>
+                    <li><strong>Bonus:</strong> Add an image using <code>&lt;img src="url" alt="desc"&gt;</code></li>
+                </ol>
+                <p class="exercise-tip">💡 Save the file (Ctrl+S) and refresh your browser to see changes!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 3: CSS STYLING -->
+    <!-- ============================================================ -->
+
+    <div class="slide section-slide css-section">
+        <div class="slide-content">
+            <div class="section-number">Module 2</div>
+            <h1>🎨 CSS Styling</h1>
+            <p>Making your page look amazing</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>What is CSS?</h2>
+            <ul class="big-list">
+                <li>CSS = <strong>Cascading Style Sheets</strong></li>
+                <li>Controls colors, fonts, spacing, and layout</li>
+                <li>Separates "how it looks" from "what's on the page"</li>
+            </ul>
+            <div class="analogy">
+                🎨 If HTML is the skeleton, CSS is the <strong>skin, clothes, and makeup</strong>!
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>CSS Syntax</h2>
+            <pre><code>selector {
+    property: value;
+}
+
+/* Example: Make all h1 headings blue and big */
+h1 {
+    color: blue;
+    font-size: 36px;
+}
+
+/* Example: Style elements with class "card" */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}</code></pre>
+            <div class="tip-box">
+                🎯 Selector = WHAT to style | Property = WHICH style | Value = HOW
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Selectors: Finding Elements</h2>
+            <table class="tag-table">
+                <tr><th>Selector</th><th>Targets</th><th>Example</th></tr>
+                <tr><td><code>h1</code></td><td>All &lt;h1&gt; elements</td><td>Element selector</td></tr>
+                <tr><td><code>.card</code></td><td>class="card"</td><td>Class selector (reusable!)</td></tr>
+                <tr><td><code>#header</code></td><td>id="header"</td><td>ID selector (unique!)</td></tr>
+                <tr><td><code>button:hover</code></td><td>When mouse hovers</td><td>Pseudo-class</td></tr>
+            </table>
+            <div class="tip-box">
+                💡 Use <strong>classes</strong> for most styling. IDs are for unique, one-of-a-kind elements.
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Most Useful CSS Properties</h2>
+            <div class="two-col">
+                <div>
+                    <h3>Text & Color</h3>
+                    <pre><code>color: #333;
+font-size: 18px;
+font-weight: bold;
+text-align: center;
+background-color: #f0f0f0;</code></pre>
+                </div>
+                <div>
+                    <h3>Spacing & Box</h3>
+                    <pre><code>padding: 20px;
+margin: 10px;
+border: 2px solid blue;
+border-radius: 12px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>The Box Model</h2>
+            <div class="box-model-demo">
+                <div class="box-margin">Margin (outside space)
+                    <div class="box-border">Border
+                        <div class="box-padding">Padding (inside space)
+                            <div class="box-content">Content</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="small" style="text-align:center;margin-top:15px;">Every element is a box! Margin → Border → Padding → Content</p>
+        </div>
+    </div>
+
+    <!-- CSS EXERCISE -->
+    <div class="slide exercise-slide">
+        <div class="slide-content">
+            <h2>🏋️ Exercise: CSS Styling</h2>
+            <div class="exercise-box">
+                <h3>Your Task (7 minutes):</h3>
+                <ol>
+                    <li>Open <code>02-css-styling/style.css</code></li>
+                    <li>Change the page <code>background-color</code> to your favorite light color</li>
+                    <li>Change the <code>.card</code> border color</li>
+                    <li>Make the <code>h1</code> a different size</li>
+                    <li>Change the <code>.cool-button</code> hover color</li>
+                    <li><strong>Bonus:</strong> Add <code>box-shadow</code> to a card</li>
+                </ol>
+                <p class="exercise-tip">💡 Colors: try "tomato", "#ff6b6b", "rgb(100, 200, 150)"</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 4: JAVASCRIPT -->
+    <!-- ============================================================ -->
+
+    <div class="slide section-slide js-section">
+        <div class="slide-content">
+            <div class="section-number">Module 3</div>
+            <h1>⚡ JavaScript Interaction</h1>
+            <p>Making your page come alive</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>What is JavaScript?</h2>
+            <ul class="big-list">
+                <li>The <strong>programming language</strong> of the web</li>
+                <li>Makes pages respond to clicks, typing, scrolling</li>
+                <li>Can change content, styles, and structure dynamically</li>
+                <li>Runs right in the browser — no install needed!</li>
+            </ul>
+            <div class="analogy">
+                🧠 JavaScript is the <strong>brain</strong> — it makes decisions and takes actions.
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Variables: Storing Data</h2>
+            <pre><code>// "let" = value CAN change
+let score = 0;
+let name = "Alex";
+
+// "const" = value CANNOT change
+const maxLives = 3;
+
+// Types of data:
+"hello"       // String (text)
+42            // Number
+true / false  // Boolean (yes/no)
+[1, 2, 3]    // Array (list)</code></pre>
+            <div class="tip-box">
+                💡 Use <code>let</code> when the value will change, <code>const</code> when it won't.
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Talking to HTML (The DOM)</h2>
+            <pre><code>// FIND an element by its ID
+const button = document.getElementById("my-button");
+const display = document.getElementById("score");
+
+// CHANGE the text inside an element
+display.textContent = "Score: 10";
+
+// CHANGE the style
+button.style.backgroundColor = "green";
+
+// ADD or REMOVE a CSS class
+element.classList.add("hidden");
+element.classList.toggle("active");</code></pre>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Events: Responding to Actions</h2>
+            <pre><code>// When the button is CLICKED, run this code:
+button.addEventListener("click", function() {
+    score = score + 1;
+    display.textContent = score;
+});
+
+// Other events:
+// "input"     → when someone types
+// "mouseover" → when mouse hovers
+// "keydown"   → when a key is pressed
+// "submit"    → when a form is sent</code></pre>
+            <div class="tip-box">
+                🎮 Events = "When THIS happens, do THAT"
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Live Demo: Click Counter</h2>
+            <pre><code>// HTML: &lt;span id="count"&gt;0&lt;/span&gt;
+//       &lt;button id="btn"&gt;Click Me&lt;/button&gt;
+
+let count = 0;
+const countDisplay = document.getElementById("count");
+const btn = document.getElementById("btn");
+
+btn.addEventListener("click", function() {
+    count = count + 1;
+    countDisplay.textContent = count;
+});</code></pre>
+            <p class="instruction">👉 Open <code>03-javascript-interaction/index.html</code> to see it work!</p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT EXERCISE -->
+    <div class="slide exercise-slide">
+        <div class="slide-content">
+            <h2>🏋️ Exercise: JavaScript</h2>
+            <div class="exercise-box">
+                <h3>Your Task (8 minutes):</h3>
+                <ol>
+                    <li>Open <code>03-javascript-interaction/index.html</code> in Live Server</li>
+                    <li>Click the counter button — watch it count!</li>
+                    <li>Open <code>script.js</code> and find the color changer section</li>
+                    <li>Modify the greeter to say "Good night" after 9pm</li>
+                    <li><strong>Bonus:</strong> Add a "Reset" button that sets the counter back to 0</li>
+                </ol>
+                <p class="exercise-tip">💡 Open the Console (F12) to see errors and test code!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 5: RESPONSIVE DESIGN -->
+    <!-- ============================================================ -->
+
+    <div class="slide section-slide responsive-section">
+        <div class="slide-content">
+            <div class="section-number">Module 4</div>
+            <h1>📱 Responsive Design</h1>
+            <p>One page, every screen size</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Why Responsive?</h2>
+            <div class="stats-row">
+                <div class="stat">
+                    <div class="stat-num">60%+</div>
+                    <p>of web traffic is mobile</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">∞</div>
+                    <p>screen sizes exist</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">1</div>
+                    <p>codebase for all</p>
+                </div>
+            </div>
+            <div class="tip-box">
+                📱 Your page must look good on phones, tablets, AND desktops!
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Flexbox: Smart Layouts</h2>
+            <pre><code>/* Parent container */
+.card-grid {
+    display: flex;       /* Activate flexbox */
+    flex-wrap: wrap;     /* Items move to next line */
+    gap: 15px;           /* Space between items */
+}
+
+/* Each card */
+.card {
+    flex: 1 1 300px;     /* Grow, shrink, min-width */
+}</code></pre>
+            <div class="flex-demo">
+                <div class="flex-item">Card 1</div>
+                <div class="flex-item">Card 2</div>
+                <div class="flex-item">Card 3</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Media Queries: Screen-Size Rules</h2>
+            <pre><code>/* Mobile styles (DEFAULT — write these first!) */
+.card {
+    width: 100%;    /* Full width on phones */
+}
+
+/* Tablet and up (768px+) */
+@media (min-width: 768px) {
+    .card {
+        width: 50%;   /* Half width on tablets */
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    .card {
+        width: 25%;   /* Quarter width on desktop */
+    }
+}</code></pre>
+            <div class="tip-box">
+                📐 Mobile-first = start small, add for bigger. Easier to scale UP!
+            </div>
+        </div>
+    </div>
+
+    <!-- RESPONSIVE EXERCISE -->
+    <div class="slide exercise-slide">
+        <div class="slide-content">
+            <h2>🏋️ Exercise: Responsive Design</h2>
+            <div class="exercise-box">
+                <h3>Your Task (7 minutes):</h3>
+                <ol>
+                    <li>Open <code>04-responsive-design/index.html</code> in Live Server</li>
+                    <li>Resize your browser window — watch the layout change!</li>
+                    <li>Open <code>style.css</code> and find the <code>@media</code> queries</li>
+                    <li>Change the breakpoint from <code>768px</code> to <code>600px</code> — what happens?</li>
+                    <li>Add a 5th card to the grid — does it still look good?</li>
+                    <li><strong>Bonus:</strong> Make the <code>h1</code> font smaller on mobile using a media query</li>
+                </ol>
+                <p class="exercise-tip">💡 Use Chrome DevTools (F12) → Toggle Device Toolbar to simulate phones!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 6: API INTEGRATION -->
+    <!-- ============================================================ -->
+
+    <div class="slide section-slide api-section">
+        <div class="slide-content">
+            <div class="section-number">Module 5</div>
+            <h1>🌐 API Integration</h1>
+            <p>Getting data from the internet</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>What is an API?</h2>
+            <ul class="big-list">
+                <li>API = <strong>Application Programming Interface</strong></li>
+                <li>A way for your code to talk to other computers</li>
+                <li>You send a <strong>request</strong>, you get a <strong>response</strong></li>
+            </ul>
+            <div class="analogy">
+                🍽️ Think of a <strong>waiter</strong>: you tell them what you want (request), they bring it from the kitchen (server), and deliver it to you (response).
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>fetch() + async/await</h2>
+            <pre><code>// The modern way to get data from the internet
+
+async function getJoke() {
+    try {
+        // 1. Send request
+        const response = await fetch(
+            "https://v2.jokeapi.dev/joke/Pun?safe-mode"
+        );
+        
+        // 2. Convert response to usable data
+        const data = await response.json();
+        
+        // 3. Use the data!
+        document.getElementById("joke").textContent = data.joke;
+        
+    } catch (error) {
+        // 4. Handle errors gracefully
+        console.error("Oops:", error);
+    }
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>What JSON Looks Like</h2>
+            <pre><code>// API response (JSON = JavaScript Object Notation)
+{
+    "type": "single",
+    "joke": "Why do programmers prefer dark mode?",
+    "id": 232,
+    "safe": true
+}
+
+// Access with dot notation:
+data.joke  → "Why do programmers prefer dark mode?"
+data.type  → "single"
+data.id    → 232</code></pre>
+            <div class="tip-box">
+                📦 JSON is just organized data — like a labeled box of information.
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Free APIs You Can Use</h2>
+            <table class="tag-table">
+                <tr><th>API</th><th>What it gives you</th><th>URL</th></tr>
+                <tr><td>JokeAPI</td><td>Random jokes</td><td>v2.jokeapi.dev</td></tr>
+                <tr><td>Dog CEO</td><td>Random dog photos</td><td>dog.ceo/api</td></tr>
+                <tr><td>Numbers API</td><td>Fun number facts</td><td>numbersapi.com</td></tr>
+                <tr><td>Cat Facts</td><td>Random cat facts</td><td>catfact.ninja</td></tr>
+            </table>
+            <p class="instruction">👉 All free, no sign-up, no API keys needed!</p>
+        </div>
+    </div>
+
+    <!-- API EXERCISE -->
+    <div class="slide exercise-slide">
+        <div class="slide-content">
+            <h2>🏋️ Exercise: API Integration</h2>
+            <div class="exercise-box">
+                <h3>Your Task (8 minutes):</h3>
+                <ol>
+                    <li>Open <code>05-api-integration/index.html</code> in Live Server</li>
+                    <li>Click "Tell Me a Joke" — watch the fetch in action!</li>
+                    <li>Click "Show Me a Dog" — see a random photo appear!</li>
+                    <li>Open <code>script.js</code> and find the <code>fetchJoke</code> function</li>
+                    <li>Change the joke category (try <code>Programming</code> or <code>Pun</code>)</li>
+                    <li><strong>Bonus:</strong> Add a "Cat Fact" button that fetches from <code>https://catfact.ninja/fact</code></li>
+                </ol>
+                <p class="exercise-tip">💡 Check the Network tab in DevTools (F12) to see API calls!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 7: MINI PROJECT -->
+    <!-- ============================================================ -->
+
+    <div class="slide section-slide project-section">
+        <div class="slide-content">
+            <div class="section-number">Module 6</div>
+            <h1>🏗️ Mini Project</h1>
+            <p>Your personal portfolio page!</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>What We're Building</h2>
+            <div class="project-preview">
+                <div class="preview-box">
+                    <div class="preview-section">🧭 Navigation</div>
+                    <div class="preview-section hero-preview">👋 Hero: Name + Tagline</div>
+                    <div class="preview-section">🧑‍💻 About Me</div>
+                    <div class="preview-section">💪 Skills (Flexbox grid)</div>
+                    <div class="preview-section">🎉 Fun Zone (JS + API)</div>
+                    <div class="preview-section">📬 Contact</div>
+                </div>
+            </div>
+            <p class="instruction">This uses EVERYTHING we learned today!</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Skills Combined</h2>
+            <table class="tag-table">
+                <tr><th>Skill</th><th>Where it's used</th></tr>
+                <tr><td>HTML</td><td>Page structure, sections, navigation</td></tr>
+                <tr><td>CSS</td><td>Colors, cards, layout, animations</td></tr>
+                <tr><td>JavaScript</td><td>Dark mode toggle, click counter</td></tr>
+                <tr><td>Responsive</td><td>Mobile nav, flexible grids</td></tr>
+                <tr><td>APIs</td><td>Joke fetcher in the Fun Zone</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- MINI PROJECT EXERCISE -->
+    <div class="slide exercise-slide">
+        <div class="slide-content">
+            <h2>🏋️ Exercise: Mini Project</h2>
+            <div class="exercise-box">
+                <h3>Your Task (15 minutes):</h3>
+                <ol>
+                    <li>Open <code>06-mini-project/index.html</code> in Live Server</li>
+                    <li>Replace "Your Name" with your actual name</li>
+                    <li>Update the "About Me" section with real info</li>
+                    <li>Add a new skill card to the Skills section</li>
+                    <li>Test the dark mode button — does it work?</li>
+                    <li>Try the Fun Zone features (jokes, counter, colors)</li>
+                    <li><strong>Bonus:</strong> Change the color scheme in <code>style.css</code></li>
+                    <li><strong>Bonus:</strong> Add a new section (Hobbies? Goals? Music?)</li>
+                </ol>
+                <p class="exercise-tip">💡 This is YOUR portfolio — make it personal!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 8: WRAP-UP -->
+    <!-- ============================================================ -->
+
+    <div class="slide section-slide">
+        <div class="slide-content">
+            <div class="section-number">Wrap-Up</div>
+            <h1>🎓 What You've Accomplished</h1>
+            <p>Let's look at how far you've come!</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>✅ Today You Learned</h2>
+            <ul class="big-list checkmarks">
+                <li>✅ HTML — Building page structure with tags</li>
+                <li>✅ CSS — Styling with selectors and properties</li>
+                <li>✅ JavaScript — Making pages interactive with events</li>
+                <li>✅ Responsive — Flexbox and media queries</li>
+                <li>✅ APIs — Fetching real data from the internet</li>
+                <li>✅ Built a complete portfolio page!</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>🚀 What's Next?</h2>
+            <div class="next-steps">
+                <div class="next-item">
+                    <h3>📚 Keep Learning</h3>
+                    <p>freeCodeCamp, The Odin Project, Frontend Mentor</p>
+                </div>
+                <div class="next-item">
+                    <h3>🛠️ Build Projects</h3>
+                    <p>To-do app, calculator, quiz game, weather app</p>
+                </div>
+                <div class="next-item">
+                    <h3>⚛️ Try React</h3>
+                    <p>Check out the <code>react-demo/</code> folder!</p>
+                </div>
+                <div class="next-item">
+                    <h3>🌍 Deploy Online</h3>
+                    <p>GitHub Pages — share your portfolio with the world!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide title-slide">
+        <div class="slide-content">
+            <h1>🎉 Thank You!</h1>
+            <h2>You're officially a frontend developer!</h2>
+            <p class="subtitle">Keep building, keep learning, and have fun! 🚀</p>
+            <div class="meta">
+                <span>📁 Keep this project — it's your reference!</span>
+            </div>
+            <div class="meta">
+                <span>⭐ github.com/Theo-retical808/front-end-dev-workshop</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- KEYBOARD INSTRUCTIONS -->
+    <div class="keyboard-hint" id="keyboard-hint">
+        Use ← → arrow keys or click buttons to navigate | Press F for fullscreen
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
