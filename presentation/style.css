@@ -508,7 +508,7 @@ code {
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     z-index: 1000;
     background: rgba(0,0,0,0.6);
     backdrop-filter: blur(10px);
@@ -517,24 +517,24 @@ code {
     border: 1px solid rgba(255,255,255,0.1);
 }
 
-.controls button {
-    background: rgba(66, 153, 225, 0.8);
-    color: white;
-    border: none;
-    padding: 8px 18px;
+.key-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
     border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background 0.2s;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.3);
 }
 
-.controls button:hover {
-    background: rgba(66, 153, 225, 1);
-}
-
-.controls button:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
+.key-icon.pressed {
+    transform: translateY(2px);
+    box-shadow: none;
+    background: rgba(66, 153, 225, 0.5);
 }
 
 #slide-counter {

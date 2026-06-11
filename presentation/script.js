@@ -1,7 +1,12 @@
 /*
     PRESENTATION CONTROLLER
     ========================
-    Handles slide navigation, keyboard controls, and progress bar.
+    Navigate with Arrow Keys:
+      → or ↓  = Next slide
+      ← or ↑  = Previous slide
+      Home     = First slide
+      End      = Last slide
+      F        = Fullscreen
 */
 
 // Get all slides
@@ -11,14 +16,12 @@ let currentSlide = 0;
 
 // UI elements
 const counter = document.getElementById('slide-counter');
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
 const progressFill = document.getElementById('progress-fill');
 const keyboardHint = document.getElementById('keyboard-hint');
+const keyIcons = document.querySelectorAll('.key-icon');
 
 // Show a specific slide
 function showSlide(index) {
-    // Bounds check
     if (index < 0) index = 0;
     if (index >= totalSlides) index = totalSlides - 1;
     
@@ -35,10 +38,6 @@ function showSlide(index) {
     // Update progress bar
     const progress = ((currentSlide + 1) / totalSlides) * 100;
     progressFill.style.width = `${progress}%`;
-    
-    // Update button states
-    prevBtn.disabled = currentSlide === 0;
-    nextBtn.disabled = currentSlide === totalSlides - 1;
 }
 
 // Navigation functions
@@ -54,21 +53,35 @@ function prevSlide() {
     }
 }
 
-// Keyboard navigation
+// Visual feedback on key press
+function flashKey(direction) {
+    // direction: 0 = left, 1 = right
+    const icon = keyIcons[direction];
+    if (icon) {
+        icon.classList.add('pressed');
+        setTimeout(() => icon.classList.remove('pressed'), 150);
+    }
+}
+
+// ===== KEYBOARD NAVIGATION (Primary Control) =====
 document.addEventListener('keydown', function(event) {
     switch(event.key) {
         case 'ArrowRight':
         case 'ArrowDown':
-        case ' ':  // Spacebar
-        case 'PageDown':
             event.preventDefault();
+            flashKey(1);
             nextSlide();
             break;
         case 'ArrowLeft':
         case 'ArrowUp':
-        case 'PageUp':
             event.preventDefault();
+            flashKey(0);
             prevSlide();
+            break;
+        case ' ':  // Spacebar also advances
+            event.preventDefault();
+            flashKey(1);
+            nextSlide();
             break;
         case 'Home':
             event.preventDefault();
@@ -90,7 +103,7 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// Fullscreen toggle
+// ===== FULLSCREEN =====
 function toggleFullscreen() {
     if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen().then(() => {
@@ -103,14 +116,13 @@ function toggleFullscreen() {
     }
 }
 
-// Listen for fullscreen changes
 document.addEventListener('fullscreenchange', function() {
     if (!document.fullscreenElement) {
         document.body.classList.remove('fullscreen');
     }
 });
 
-// Touch/swipe support for mobile
+// ===== TOUCH/SWIPE (Mobile Fallback) =====
 let touchStartX = 0;
 let touchEndX = 0;
 
@@ -120,34 +132,22 @@ document.addEventListener('touchstart', function(event) {
 
 document.addEventListener('touchend', function(event) {
     touchEndX = event.changedTouches[0].screenX;
-    handleSwipe();
-}, { passive: true });
-
-function handleSwipe() {
-    const threshold = 50; // minimum swipe distance
     const diff = touchStartX - touchEndX;
     
-    if (diff > threshold) {
-        nextSlide(); // Swipe left → next
-    } else if (diff < -threshold) {
-        prevSlide(); // Swipe right → previous
+    if (diff > 50) {
+        nextSlide();
+    } else if (diff < -50) {
+        prevSlide();
     }
-}
+}, { passive: true });
 
-// Hide keyboard hint after first interaction
-let hintVisible = true;
+// ===== HIDE HINT AFTER FIRST KEY PRESS =====
 document.addEventListener('keydown', function() {
-    if (hintVisible) {
+    if (keyboardHint) {
         keyboardHint.style.opacity = '0';
         setTimeout(() => { keyboardHint.style.display = 'none'; }, 500);
-        hintVisible = false;
     }
 }, { once: true });
 
-// Initialize
+// Initialize first slide
 showSlide(0);
-
-// Preload: remove any loading states
-window.addEventListener('load', function() {
-    document.body.style.opacity = '1';
-});
