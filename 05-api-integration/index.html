@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 5: API Integration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 
+        🎓 MODULE 5: API INTEGRATION
+        ==============================
+        
+        APIs let your webpage talk to OTHER computers to get data!
+        
+        API = Application Programming Interface
+        Think of it as a waiter in a restaurant:
+        - You (your code) make a REQUEST ("I'd like a joke, please")
+        - The API (server) sends back a RESPONSE (the joke)
+        
+        We use fetch() to make requests.
+        We use async/await to wait for the response.
+        
+        ⚠️ NOTE: This module requires an internet connection!
+    -->
+
+    <h1>🌐 APIs: Getting Data from the Internet</h1>
+
+    <!-- EXAMPLE 1: Random Joke -->
+    <div class="demo-box">
+        <h2>😂 Random Joke Generator</h2>
+        <p class="explanation">Uses the free JokeAPI to fetch random jokes.</p>
+        <div id="joke-display" class="result-box">
+            <p>Click the button to get a joke!</p>
+        </div>
+        <button id="joke-button">Tell Me a Joke! 🎭</button>
+    </div>
+
+    <!-- EXAMPLE 2: Random Activity -->
+    <div class="demo-box">
+        <h2>🎲 Bored? Get an Activity!</h2>
+        <p class="explanation">Uses the Bored API to suggest random activities.</p>
+        <div id="activity-display" class="result-box">
+            <p>Click to get a suggestion for something to do!</p>
+        </div>
+        <button id="activity-button">Suggest Something! 💡</button>
+    </div>
+
+    <!-- EXAMPLE 3: Random Dog Image -->
+    <div class="demo-box">
+        <h2>🐕 Random Dog Picture</h2>
+        <p class="explanation">Uses the Dog CEO API to fetch random dog photos.</p>
+        <div id="dog-display" class="result-box">
+            <p>Click for a random dog photo!</p>
+        </div>
+        <button id="dog-button">Show Me a Dog! 🐶</button>
+    </div>
+
+    <!-- EXAMPLE 4: Fun Facts -->
+    <div class="demo-box">
+        <h2>🔢 Number Facts</h2>
+        <p class="explanation">Uses the Numbers API to get fun facts about numbers.</p>
+        <input type="number" id="number-input" placeholder="Enter a number..." class="number-input">
+        <button id="fact-button">Get Fact! 🧠</button>
+        <div id="fact-display" class="result-box">
+            <p>Enter a number and click the button!</p>
+        </div>
+    </div>
+
+    <!-- Loading indicator (hidden by default) -->
+    <div id="loading" class="loading hidden">Loading... ⏳</div>
+
+    <script src="script.js"></script>
+
+    <!-- 
+        ✅ EXERCISES:
+        1. Add error handling that shows a friendly message if the internet is off
+        2. Make the joke button disabled while loading (so you can't spam it)
+        3. Add a "copy to clipboard" button for the joke
+        4. Fetch from a different API (try https://catfact.ninja/fact)
+        5. Display multiple dog images at once (fetch 3 in a row)
+    -->
+
+</body>
+</html>

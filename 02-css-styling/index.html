@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2: CSS Styling</title>
+    
+    <!-- This links our CSS file to this HTML page -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 
+        🎓 MODULE 2: CSS STYLING
+        ========================
+        
+        CSS makes your webpage LOOK GOOD!
+        HTML = structure (what's on the page)
+        CSS = style (how it looks)
+        
+        CSS works by selecting HTML elements and applying styles to them.
+        Open style.css to see how the magic happens!
+    -->
+
+    <header>
+        <h1>My Styled Page ✨</h1>
+        <p class="subtitle">Now with colors, fonts, and style!</p>
+    </header>
+
+    <main>
+        <!-- Classes let you style specific elements -->
+        <div class="card">
+            <h2>What is CSS?</h2>
+            <p>CSS stands for <strong>Cascading Style Sheets</strong>. 
+               It controls colors, fonts, spacing, layout, and more!</p>
+        </div>
+
+        <div class="card highlight">
+            <h2>How CSS Works</h2>
+            <p>You write rules that say: "Hey browser, make all paragraphs blue" 
+               or "Make this box have rounded corners".</p>
+        </div>
+
+        <div class="card">
+            <h2>Three Ways to Add CSS</h2>
+            <ul>
+                <li><strong>External file</strong> (like we're doing here!) — Best practice ✅</li>
+                <li><strong>Internal</strong> (inside a &lt;style&gt; tag) — OK for small stuff</li>
+                <li><strong>Inline</strong> (directly on an element) — Avoid if possible ❌</li>
+            </ul>
+        </div>
+
+        <!-- ID selectors are for unique elements -->
+        <div id="special-box">
+            <p>This box uses an ID selector. IDs are unique — only ONE element can have each ID!</p>
+        </div>
+
+        <button class="cool-button">I'm a Styled Button!</button>
+    </main>
+
+    <footer>
+        <p>Made with ❤️ at the Frontend Workshop</p>
+    </footer>
+
+    <!-- 
+        ✅ EXERCISES:
+        1. Change the background color of the page (in style.css)
+        2. Change the card border color to your favorite color
+        3. Make the h1 bigger or smaller
+        4. Add a new card with your own content
+        5. Try changing the button colors on hover
+    -->
+
+</body>
+</html>

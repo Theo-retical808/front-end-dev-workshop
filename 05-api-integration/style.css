@@ -1,0 +1,114 @@
+/*
+    🎓 MODULE 5: API INTEGRATION STYLES
+*/
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #fffbeb;
+    color: #2d3748;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #d69e2e;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #975a16;
+    margin-top: 0;
+}
+
+.explanation {
+    color: #718096;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.demo-box {
+    background: white;
+    border: 2px solid #fefcbf;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.result-box {
+    background: #fffff0;
+    border: 1px solid #ecc94b;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    min-height: 60px;
+}
+
+.result-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 10px auto;
+}
+
+button {
+    background-color: #d69e2e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #b7791f;
+    transform: scale(1.02);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    background-color: #a0aec0;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.number-input {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    width: 150px;
+    margin-right: 10px;
+}
+
+.number-input:focus {
+    border-color: #d69e2e;
+    outline: none;
+}
+
+.loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #d69e2e;
+    padding: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Error styling */
+.error {
+    color: #e53e3e;
+    font-weight: bold;
+}
