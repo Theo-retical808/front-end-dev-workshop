@@ -714,7 +714,140 @@ data.id    → 232</code></pre>
     </div>
 
     <!-- ============================================================ -->
-    <!-- SECTION 8: WRAP-UP -->
+    <!-- SECTION 8: REACT INTRO (Brief) -->
+    <!-- ============================================================ -->
+
+    <div class="slide section-slide react-section">
+        <div class="slide-content">
+            <div class="section-number">Bonus</div>
+            <h1>⚛️ Introduction to React</h1>
+            <p>A sneak peek at modern frontend development</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>What is React?</h2>
+            <ul class="big-list">
+                <li>A <strong>JavaScript library</strong> made by Facebook (Meta)</li>
+                <li>Used by Instagram, Netflix, Airbnb, Discord, and more</li>
+                <li>Makes building complex UIs <strong>easier</strong> and <strong>faster</strong></li>
+                <li>Key idea: build with <strong>reusable components</strong></li>
+            </ul>
+            <div class="analogy">
+                🧱 Think of LEGO blocks — each component is a block you can reuse and combine to build anything!
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Why React? (vs Plain JS)</h2>
+            <div class="two-col">
+                <div>
+                    <h3>Plain JavaScript</h3>
+                    <pre><code>// Manually update every element
+document.getElementById("name")
+  .textContent = "Alex";
+document.getElementById("score")
+  .textContent = score;
+document.getElementById("list")
+  .innerHTML = items.map(
+    i => `&lt;li&gt;${i}&lt;/li&gt;`
+  ).join("");</code></pre>
+                    <p class="small">😓 You manage every update yourself</p>
+                </div>
+                <div>
+                    <h3>React</h3>
+                    <pre><code>// Just describe what you want
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;{name}&lt;/h1&gt;
+      &lt;p&gt;Score: {score}&lt;/p&gt;
+      &lt;ul&gt;
+        {items.map(i =&gt;
+          &lt;li&gt;{i}&lt;/li&gt;
+        )}
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+                    <p class="small">✨ React updates the page for you!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Core Concepts</h2>
+            <div class="three-pillars">
+                <div class="pillar">
+                    <div class="pillar-icon">🧩</div>
+                    <h3>Components</h3>
+                    <p>Reusable UI pieces</p>
+                    <p class="small">Like functions that return HTML</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">📦</div>
+                    <h3>State</h3>
+                    <p>Data that changes</p>
+                    <p class="small">When state updates, UI updates</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">📨</div>
+                    <h3>Props</h3>
+                    <p>Pass data to children</p>
+                    <p class="small">Like function arguments</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>A React Component</h2>
+            <pre><code>import { useState } from 'react';
+
+function Counter() {
+    // useState = data that can change
+    const [count, setCount] = useState(0);
+
+    return (
+        &lt;div&gt;
+            &lt;h2&gt;Count: {count}&lt;/h2&gt;
+            &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+                Add One
+            &lt;/button&gt;
+        &lt;/div&gt;
+    );
+}</code></pre>
+            <div class="tip-box">
+                💡 Notice: no <code>document.getElementById</code> needed! React handles the DOM for you.
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Getting Started with React</h2>
+            <pre><code># In your terminal:
+npm create vite@latest my-app -- --template react
+cd my-app
+npm install
+npm run dev
+
+# That's it! Open the URL shown in the terminal.</code></pre>
+            <div class="tip-box">
+                🚀 Check out the <code>react-demo/</code> folder in this workshop project for a working example!
+            </div>
+            <p class="instruction" style="margin-top:20px;">React is your <strong>next step</strong> after mastering HTML, CSS, and JavaScript. You now have the foundation!</p>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 9: WRAP-UP -->
     <!-- ============================================================ -->
 
     <div class="slide section-slide">
@@ -752,13 +885,31 @@ data.id    → 232</code></pre>
                     <p>To-do app, calculator, quiz game, weather app</p>
                 </div>
                 <div class="next-item">
-                    <h3>⚛️ Try React</h3>
-                    <p>Check out the <code>react-demo/</code> folder!</p>
+                    <h3>⚛️ Dive Deeper into React</h3>
+                    <p>You've seen the basics — now try the <code>react-demo/</code> folder!</p>
                 </div>
                 <div class="next-item">
                     <h3>🌍 Deploy Online</h3>
                     <p>GitHub Pages — share your portfolio with the world!</p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUBMISSION INSTRUCTIONS -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>📤 Submission Instructions</h2>
+            <div class="submission-steps">
+                <div class="sub-step"><span class="sub-num">1</span> Save all your files (Ctrl+S)</div>
+                <div class="sub-step"><span class="sub-num">2</span> Select your entire workshop folder</div>
+                <div class="sub-step"><span class="sub-num">3</span> Right-click → <strong>Send to → Compressed (zipped) folder</strong></div>
+                <div class="sub-step"><span class="sub-num">4</span> Rename the zip file to: <code>FullName_WORKSHOP.zip</code></div>
+                <div class="sub-step"><span class="sub-num">5</span> Upload to the shared <strong>Google Drive</strong> folder</div>
+            </div>
+            <div class="tip-box" style="margin-top:20px;">
+                📝 Example: <code>JuanDelaCruz_WORKSHOP.zip</code><br>
+                Use your full name, no spaces — underscores only!
             </div>
         </div>
     </div>

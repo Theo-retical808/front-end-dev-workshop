@@ -114,6 +114,10 @@ html, body {
     background: linear-gradient(135deg, #319795 0%, #234e52 100%);
 }
 
+.section-slide.react-section {
+    background: linear-gradient(135deg, #00d8ff 0%, #0a7ea4 100%);
+}
+
 .section-number {
     font-size: 1rem;
     text-transform: uppercase;
@@ -498,6 +502,38 @@ code {
 .next-item p {
     font-size: 0.95rem;
     opacity: 0.8;
+}
+
+/* ===== SUBMISSION STEPS ===== */
+.submission-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.sub-step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    font-size: 1.15rem;
+    border-left: 3px solid #4299e1;
+}
+
+.sub-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #4299e1;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.95rem;
+    flex-shrink: 0;
 }
 
 /* ===== NAVIGATION CONTROLS ===== */
