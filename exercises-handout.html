@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workshop Exercises - Quick Reference Handout</title>
+    <title>Workshop Exercises - Interactive Checklist</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -17,14 +17,41 @@
         h1 { 
             text-align: center; 
             color: #2b6cb0; 
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             font-size: 2rem;
         }
         .intro {
             text-align: center;
             color: #718096;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             font-size: 1.05rem;
+        }
+        .progress-summary {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 12px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+        .progress-summary .progress-bar-outer {
+            width: 100%;
+            height: 12px;
+            background: #e2e8f0;
+            border-radius: 6px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .progress-summary .progress-bar-inner {
+            height: 100%;
+            background: linear-gradient(90deg, #38a169, #48bb78);
+            border-radius: 6px;
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+        .progress-text {
+            font-size: 0.9rem;
+            color: #4a5568;
         }
         .module {
             background: white;
@@ -33,7 +60,6 @@
             margin-bottom: 25px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             border-left: 5px solid #4299e1;
-            page-break-inside: avoid;
         }
         .module.html-mod { border-left-color: #e53e3e; }
         .module.css-mod { border-left-color: #38a169; }
@@ -60,19 +86,51 @@
             margin-bottom: 8px;
             font-size: 1.05rem;
         }
-        ol {
-            padding-left: 25px;
-            margin-bottom: 15px;
+
+        /* Interactive Checkbox Styling */
+        .checklist {
+            list-style: none;
+            padding-left: 0;
         }
-        li {
-            margin-bottom: 8px;
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 8px 10px;
+            border-radius: 6px;
+            margin-bottom: 4px;
+            transition: background 0.2s;
         }
+        .checklist li:hover {
+            background: #f0f4f8;
+        }
+        .checklist li.checked {
+            opacity: 0.6;
+        }
+        .checklist li.checked .task-text {
+            text-decoration: line-through;
+            color: #a0aec0;
+        }
+        .checklist input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 3px;
+            cursor: pointer;
+            accent-color: #38a169;
+            flex-shrink: 0;
+        }
+        .task-text {
+            flex: 1;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
         .bonus {
             background: #fffff0;
             border: 1px solid #ecc94b;
             border-radius: 8px;
             padding: 12px 15px;
-            margin-top: 10px;
+            margin-top: 12px;
         }
         .bonus strong { color: #d69e2e; }
         .hint {
@@ -92,23 +150,60 @@
             font-family: 'Cascadia Code', 'Consolas', monospace;
             color: #805ad5;
         }
-        .checklist {
-            list-style: none;
-            padding-left: 0;
+
+        /* Submission Section */
+        .submission {
+            background: linear-gradient(135deg, #ebf8ff, #e6fffa);
+            border: 2px solid #4299e1;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
-        .checklist li {
-            padding-left: 28px;
-            position: relative;
+        .submission h2 {
+            color: #2b6cb0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
         }
-        .checklist li::before {
-            content: "☐";
-            position: absolute;
-            left: 0;
-            font-size: 1.2rem;
+        .submission ol {
+            padding-left: 25px;
+            font-size: 1.05rem;
+            line-height: 2;
         }
+        .submission .example {
+            background: white;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+        .submission .example code {
+            font-size: 1rem;
+            color: #e53e3e;
+        }
+
+        /* Reset Button */
+        .reset-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .reset-btn {
+            background: #e53e3e;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .reset-btn:hover {
+            background: #c53030;
+        }
+
         .footer-note {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 25px;
             color: #a0aec0;
             font-size: 0.9rem;
         }
@@ -116,13 +211,23 @@
         @media print {
             body { background: white; padding: 15px; }
             .module { box-shadow: none; border: 1px solid #e2e8f0; }
+            .reset-section { display: none; }
+            .progress-summary { display: none; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🏋️ Workshop Exercises Handout</h1>
-        <p class="intro">Complete each exercise after the presenter finishes that module. Check them off as you go!</p>
+        <h1>🏋️ Workshop Exercises Checklist</h1>
+        <p class="intro">Check off tasks as you complete them — your progress is saved automatically!</p>
+
+        <!-- PROGRESS SUMMARY -->
+        <div class="progress-summary">
+            <div class="progress-bar-outer">
+                <div class="progress-bar-inner" id="progress-bar"></div>
+            </div>
+            <p class="progress-text" id="progress-text">0 / 0 tasks completed</p>
+        </div>
 
         <!-- MODULE 1: HTML -->
         <div class="module html-mod">
@@ -130,13 +235,13 @@
             <p class="time">⏱️ Time: 5 minutes | 📂 File: <code>01-html-basics/index.html</code></p>
             
             <p class="task-label">Tasks:</p>
-            <ol class="checklist">
-                <li>Change the <code>&lt;h1&gt;</code> text to say your own name (e.g., "Welcome to Alex's Page!")</li>
-                <li>Add an unordered list (<code>&lt;ul&gt;</code>) with your 3 favorite foods</li>
-                <li>Add a link (<code>&lt;a&gt;</code>) to your favorite website</li>
-                <li>Add a second paragraph about your hobbies using <code>&lt;p&gt;</code></li>
-                <li>Save (Ctrl+S) and check in your browser!</li>
-            </ol>
+            <ul class="checklist" data-module="html">
+                <li><input type="checkbox" data-id="html-1"><span class="task-text">Change the <code>&lt;h1&gt;</code> text to say your own name</span></li>
+                <li><input type="checkbox" data-id="html-2"><span class="task-text">Add an unordered list (<code>&lt;ul&gt;</code>) with your 3 favorite foods</span></li>
+                <li><input type="checkbox" data-id="html-3"><span class="task-text">Add a link (<code>&lt;a&gt;</code>) to your favorite website</span></li>
+                <li><input type="checkbox" data-id="html-4"><span class="task-text">Add a second paragraph about your hobbies</span></li>
+                <li><input type="checkbox" data-id="html-5"><span class="task-text">Save (Ctrl+S) and check in your browser!</span></li>
+            </ul>
             
             <div class="bonus">
                 <strong>⭐ Bonus:</strong> Add an image using <code>&lt;img src="https://via.placeholder.com/200" alt="My image"&gt;</code>
@@ -153,20 +258,20 @@
             <p class="time">⏱️ Time: 7 minutes | 📂 File: <code>02-css-styling/style.css</code></p>
             
             <p class="task-label">Tasks:</p>
-            <ol class="checklist">
-                <li>Change the <code>background-color</code> of <code>body</code> to a color you like (try <code>#fff0f5</code> or <code>lightyellow</code>)</li>
-                <li>Change the <code>.card</code> border color to your favorite color</li>
-                <li>Make the <code>h1</code> font-size bigger (try <code>3rem</code>)</li>
-                <li>Change the <code>.cool-button</code> background color</li>
-                <li>Change what happens on <code>.cool-button:hover</code> (try a different color!)</li>
-            </ol>
+            <ul class="checklist" data-module="css">
+                <li><input type="checkbox" data-id="css-1"><span class="task-text">Change the <code>background-color</code> of <code>body</code> to a color you like</span></li>
+                <li><input type="checkbox" data-id="css-2"><span class="task-text">Change the <code>.card</code> border color to your favorite color</span></li>
+                <li><input type="checkbox" data-id="css-3"><span class="task-text">Make the <code>h1</code> font-size bigger (try <code>3rem</code>)</span></li>
+                <li><input type="checkbox" data-id="css-4"><span class="task-text">Change the <code>.cool-button</code> background color</span></li>
+                <li><input type="checkbox" data-id="css-5"><span class="task-text">Change what happens on <code>.cool-button:hover</code></span></li>
+            </ul>
             
             <div class="bonus">
-                <strong>⭐ Bonus:</strong> Add <code>box-shadow: 0 4px 15px rgba(0,0,0,0.2);</code> to <code>.card</code> for a fancy shadow effect!
+                <strong>⭐ Bonus:</strong> Add <code>box-shadow: 0 4px 15px rgba(0,0,0,0.2);</code> to <code>.card</code>
             </div>
             
             <div class="hint">
-                <strong>💡 Hint:</strong> CSS format is <code>property: value;</code> — don't forget the semicolon! Try color names like "coral", "teal", "orchid".
+                <strong>💡 Hint:</strong> CSS format is <code>property: value;</code> — don't forget the semicolon! Try "coral", "teal", "orchid".
             </div>
         </div>
 
@@ -176,22 +281,20 @@
             <p class="time">⏱️ Time: 8 minutes | 📂 File: <code>03-javascript-interaction/script.js</code></p>
             
             <p class="task-label">Tasks:</p>
-            <ol class="checklist">
-                <li>Open the page in Live Server and test all the buttons</li>
-                <li>In <code>script.js</code>, find the <code>messages</code> array and add your own messages</li>
-                <li>Find the greeter function and add a "Good night" greeting for after 9pm (hour >= 21)</li>
-                <li>Change the random color function to only use your favorite colors</li>
-                <li>Open the browser Console (F12) and type <code>alert("Hello!")</code></li>
-            </ol>
+            <ul class="checklist" data-module="js">
+                <li><input type="checkbox" data-id="js-1"><span class="task-text">Open the page in Live Server and test all the buttons</span></li>
+                <li><input type="checkbox" data-id="js-2"><span class="task-text">Find the <code>messages</code> array and add your own messages</span></li>
+                <li><input type="checkbox" data-id="js-3"><span class="task-text">Add a "Good night" greeting for after 9pm (hour >= 21)</span></li>
+                <li><input type="checkbox" data-id="js-4"><span class="task-text">Change the random color function to use your favorite colors</span></li>
+                <li><input type="checkbox" data-id="js-5"><span class="task-text">Open the Console (F12) and type <code>alert("Hello!")</code></span></li>
+            </ul>
             
             <div class="bonus">
-                <strong>⭐ Bonus:</strong> Add a "Reset" button for the counter. You'll need:
-                <br>• A new <code>&lt;button id="reset-btn"&gt;Reset&lt;/button&gt;</code> in the HTML
-                <br>• JavaScript to set <code>count = 0</code> and update the display when clicked
+                <strong>⭐ Bonus:</strong> Add a "Reset" button that sets <code>count = 0</code> and updates the display.
             </div>
             
             <div class="hint">
-                <strong>💡 Hint:</strong> The Console (F12) is your best debugging friend. Red text = error. Look at the line number!
+                <strong>💡 Hint:</strong> The Console (F12) shows errors in red. Look at the line number to find the problem!
             </div>
         </div>
 
@@ -201,20 +304,20 @@
             <p class="time">⏱️ Time: 7 minutes | 📂 File: <code>04-responsive-design/style.css</code></p>
             
             <p class="task-label">Tasks:</p>
-            <ol class="checklist">
-                <li>Open the page and <strong>resize your browser window</strong> — watch cards rearrange!</li>
-                <li>Press F12 → click the "Toggle Device Toolbar" icon (📱) to simulate a phone</li>
-                <li>In <code>style.css</code>, find <code>@media (min-width: 768px)</code></li>
-                <li>Change <code>768px</code> to <code>500px</code> — resize and see the difference!</li>
-                <li>Add a 5th card in the HTML — does the layout still look good?</li>
-            </ol>
+            <ul class="checklist" data-module="responsive">
+                <li><input type="checkbox" data-id="resp-1"><span class="task-text">Open the page and <strong>resize your browser window</strong></span></li>
+                <li><input type="checkbox" data-id="resp-2"><span class="task-text">Press F12 → click the device toolbar icon (📱) to simulate a phone</span></li>
+                <li><input type="checkbox" data-id="resp-3"><span class="task-text">Find <code>@media (min-width: 768px)</code> in the CSS</span></li>
+                <li><input type="checkbox" data-id="resp-4"><span class="task-text">Change <code>768px</code> to <code>500px</code> and see what happens</span></li>
+                <li><input type="checkbox" data-id="resp-5"><span class="task-text">Add a 5th card in the HTML — does it still look good?</span></li>
+            </ul>
             
             <div class="bonus">
-                <strong>⭐ Bonus:</strong> Add a media query that makes <code>h1</code> font-size <code>1.2rem</code> on mobile and <code>2.5rem</code> on desktop.
+                <strong>⭐ Bonus:</strong> Add a media query that makes <code>h1</code> smaller on mobile screens.
             </div>
             
             <div class="hint">
-                <strong>💡 Hint:</strong> Mobile-first means: write small screen styles first, then use <code>@media (min-width: ...)</code> for bigger screens.
+                <strong>💡 Hint:</strong> Mobile-first = write small styles first, use <code>@media (min-width: ...)</code> for bigger.
             </div>
         </div>
 
@@ -224,22 +327,20 @@
             <p class="time">⏱️ Time: 8 minutes | 📂 File: <code>05-api-integration/script.js</code></p>
             
             <p class="task-label">Tasks:</p>
-            <ol class="checklist">
-                <li>Open the page and click "Tell Me a Joke" — a joke appears from the internet!</li>
-                <li>Click "Show Me a Dog" — a random photo loads!</li>
-                <li>Open DevTools (F12) → <strong>Network tab</strong> → click a button → see the API call!</li>
-                <li>In <code>script.js</code>, find <code>fetchJoke</code> and change the category (try <code>Programming</code> or <code>Christmas</code>)</li>
-                <li>Find the dog fetch and try the URL in a new browser tab to see raw JSON</li>
-            </ol>
+            <ul class="checklist" data-module="api">
+                <li><input type="checkbox" data-id="api-1"><span class="task-text">Click "Tell Me a Joke" — watch the fetch in action!</span></li>
+                <li><input type="checkbox" data-id="api-2"><span class="task-text">Click "Show Me a Dog" — a random photo loads!</span></li>
+                <li><input type="checkbox" data-id="api-3"><span class="task-text">Open DevTools (F12) → Network tab → click a button → see the API call</span></li>
+                <li><input type="checkbox" data-id="api-4"><span class="task-text">Change the joke category in <code>script.js</code> (try <code>Programming</code>)</span></li>
+                <li><input type="checkbox" data-id="api-5"><span class="task-text">Visit a dog API URL directly in a new tab to see raw JSON</span></li>
+            </ul>
             
             <div class="bonus">
-                <strong>⭐ Bonus:</strong> Add a new button that fetches cat facts from <code>https://catfact.ninja/fact</code>
-                <br>• The response has <code>data.fact</code> containing the text
-                <br>• Copy the pattern from <code>fetchJoke</code> and adapt it!
+                <strong>⭐ Bonus:</strong> Add a "Cat Fact" button fetching from <code>https://catfact.ninja/fact</code>
             </div>
             
             <div class="hint">
-                <strong>💡 Hint:</strong> Always use <code>try/catch</code> with <code>fetch()</code>! The internet isn't always reliable.
+                <strong>💡 Hint:</strong> Always use <code>try/catch</code> with <code>fetch()</code> to handle errors gracefully.
             </div>
         </div>
 
@@ -249,33 +350,144 @@
             <p class="time">⏱️ Time: 15 minutes | 📂 File: <code>06-mini-project/</code></p>
             
             <p class="task-label">Tasks:</p>
-            <ol class="checklist">
-                <li>Open <code>06-mini-project/index.html</code> in Live Server</li>
-                <li>Find "Your Name" in the hero section and replace with your real name</li>
-                <li>Update the "About Me" section with 2 sentences about yourself</li>
-                <li>Add a new skill card (copy an existing one and change the emoji + text)</li>
-                <li>Test the Dark Mode toggle — does it work?</li>
-                <li>Click around the Fun Zone (jokes, counter, colors)</li>
-                <li>Change at least 2 colors in <code>style.css</code></li>
-            </ol>
+            <ul class="checklist" data-module="project">
+                <li><input type="checkbox" data-id="proj-1"><span class="task-text">Open <code>06-mini-project/index.html</code> in Live Server</span></li>
+                <li><input type="checkbox" data-id="proj-2"><span class="task-text">Replace "Your Name" with your real name</span></li>
+                <li><input type="checkbox" data-id="proj-3"><span class="task-text">Update the "About Me" section with real info</span></li>
+                <li><input type="checkbox" data-id="proj-4"><span class="task-text">Add a new skill card to the Skills grid</span></li>
+                <li><input type="checkbox" data-id="proj-5"><span class="task-text">Test the Dark Mode toggle</span></li>
+                <li><input type="checkbox" data-id="proj-6"><span class="task-text">Try all Fun Zone features (jokes, counter, colors)</span></li>
+                <li><input type="checkbox" data-id="proj-7"><span class="task-text">Change at least 2 colors in <code>style.css</code></span></li>
+            </ul>
             
             <div class="bonus">
-                <strong>⭐ Bonus Challenges:</strong>
-                <br>• Add a new section (Hobbies? Favorite Music? Goals for this year?)
-                <br>• Add another API feature to the Fun Zone
-                <br>• Change the gradient colors in the hero section
-                <br>• Add hover animations to the skill cards
+                <strong>⭐ Bonus:</strong> Add a new section (Hobbies? Music? Goals?) and add a new API feature!
             </div>
             
             <div class="hint">
-                <strong>💡 Hint:</strong> This is YOUR portfolio — be creative! There are no wrong answers. Try things, break things, fix things. That's how real developers work!
+                <strong>💡 Hint:</strong> This is YOUR portfolio — be creative! There are no wrong answers.
             </div>
         </div>
 
+        <!-- SUBMISSION INSTRUCTIONS -->
+        <div class="submission">
+            <h2>📤 Submission Instructions</h2>
+            <ol>
+                <li><strong>Save all your files</strong> — press <code>Ctrl+S</code> in every open file</li>
+                <li><strong>Close VS Code</strong> (optional but recommended)</li>
+                <li><strong>Find your workshop folder</strong> on your computer</li>
+                <li><strong>Right-click the folder</strong> → "Send to" → "Compressed (zipped) folder"</li>
+                <li><strong>Rename the zip file</strong> to: <code>FullName_WORKSHOP.zip</code></li>
+                <li><strong>Upload</strong> the zip file to the shared <strong>Google Drive folder</strong></li>
+            </ol>
+            <div class="example">
+                📝 <strong>Example file name:</strong> <code>JuanDelaCruz_WORKSHOP.zip</code><br>
+                ⚠️ Use your full name with no spaces — use underscores or capitalize each word.<br>
+                📂 Upload to the Google Drive link provided by your facilitator.
+            </div>
+        </div>
+
+        <!-- RESET -->
+        <div class="reset-section">
+            <button class="reset-btn" onclick="resetProgress()">🗑️ Reset All Progress</button>
+            <p style="font-size:0.8rem; color:#a0aec0; margin-top:5px;">This will uncheck all tasks</p>
+        </div>
+
         <p class="footer-note">
-            🎉 Congratulations on completing all exercises! You're a frontend developer now!<br>
-            Keep this handout as a reference. Keep building. Keep learning. 🚀
+            🎉 Congratulations on completing the workshop! You're a frontend developer now! 🚀
         </p>
     </div>
+
+    <script>
+        /*
+            INTERACTIVE CHECKLIST with localStorage Persistence
+            ====================================================
+            - Saves checkbox state to localStorage
+            - Restores state when page is reopened
+            - Updates progress bar in real time
+        */
+
+        const STORAGE_KEY = 'workshop_checklist_progress';
+
+        // Load saved state from localStorage
+        function loadProgress() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                return JSON.parse(saved);
+            }
+            return {};
+        }
+
+        // Save state to localStorage
+        function saveProgress(state) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        }
+
+        // Update progress bar and text
+        function updateProgressDisplay() {
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+            const total = checkboxes.length;
+            const checked = document.querySelectorAll('.checklist input[type="checkbox"]:checked').length;
+            
+            const percentage = total > 0 ? (checked / total) * 100 : 0;
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-text').textContent = 
+                `${checked} / ${total} tasks completed (${Math.round(percentage)}%)`;
+        }
+
+        // Apply checked/unchecked styling to list item
+        function updateItemStyle(checkbox) {
+            const li = checkbox.closest('li');
+            if (checkbox.checked) {
+                li.classList.add('checked');
+            } else {
+                li.classList.remove('checked');
+            }
+        }
+
+        // Initialize: restore saved state and set up listeners
+        function init() {
+            const state = loadProgress();
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+
+            checkboxes.forEach(checkbox => {
+                const id = checkbox.getAttribute('data-id');
+                
+                // Restore saved state
+                if (state[id]) {
+                    checkbox.checked = true;
+                    updateItemStyle(checkbox);
+                }
+
+                // Listen for changes
+                checkbox.addEventListener('change', function() {
+                    const currentState = loadProgress();
+                    currentState[this.getAttribute('data-id')] = this.checked;
+                    saveProgress(currentState);
+                    updateItemStyle(this);
+                    updateProgressDisplay();
+                });
+            });
+
+            updateProgressDisplay();
+        }
+
+        // Reset all progress
+        function resetProgress() {
+            if (confirm('Are you sure you want to reset all progress? This cannot be undone!')) {
+                localStorage.removeItem(STORAGE_KEY);
+                const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+                checkboxes.forEach(cb => {
+                    cb.checked = false;
+                    updateItemStyle(cb);
+                });
+                updateProgressDisplay();
+            }
+        }
+
+        // Start
+        init();
+    </script>
 </body>
 </html>
