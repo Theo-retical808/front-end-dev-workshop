@@ -1,0 +1,117 @@
+/*
+    🎓 MODULE 3: STYLES
+    Keeping things clean and readable for our JavaScript demos
+*/
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f7fafc;
+    color: #2d3748;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    color: #553c9a;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #44337a;
+    margin-top: 0;
+}
+
+/* Each demo lives in a box */
+.demo-box {
+    background: white;
+    border: 2px solid #e9d8fd;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Button styling */
+button {
+    background-color: #805ad5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #6b46c1;
+    transform: scale(1.02);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* The color-changing box */
+.color-box {
+    width: 200px;
+    height: 100px;
+    background-color: #805ad5;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: bold;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+/* Hidden message (starts invisible) */
+.hidden-message {
+    display: none;
+    background-color: #fefcbf;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+.hidden-message.visible {
+    display: block;
+}
+
+/* Input styling */
+.calc-input {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    margin-right: 8px;
+    width: 120px;
+}
+
+.calc-input:focus {
+    border-color: #805ad5;
+    outline: none;
+}
+
+/* Make the count number stand out */
+#count {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #805ad5;
+}
+
+#result {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #38a169;
+}
+
+#greeting {
+    font-size: 1.2rem;
+    color: #2b6cb0;
+    font-weight: bold;
+}
